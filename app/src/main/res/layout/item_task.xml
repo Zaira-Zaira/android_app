@@ -28,7 +28,7 @@
         />
 
     <ImageButton
-        android:id="@+id/editButton"
+        android:id="@+id/edit_task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="Edit"

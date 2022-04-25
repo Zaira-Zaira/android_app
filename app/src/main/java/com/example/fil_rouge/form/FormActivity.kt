@@ -14,16 +14,21 @@ class FormActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-        var validBtn = findViewById<Button>(R.id.validButton);
-        var taskTitle = findViewById<EditText>(R.id.editTitle);
-        var taskDescription = findViewById<EditText>(R.id.editDescription);
-        validBtn.setOnClickListener{
-            val newTask =
-                Task(id = UUID.randomUUID().toString(), title = taskTitle.getText().toString(), description = taskDescription.getText().toString());
-            intent.putExtra("task", newTask);
-            setResult(RESULT_OK, intent);
-            finish();
-        }
+        val validBtn = findViewById<Button>(R.id.validButton);
+        val taskTitle = findViewById<EditText>(R.id.editTitle);
+        val taskDescription = findViewById<EditText>(R.id.editDescription);
+        val task = intent.getSerializableExtra("task") as? Task
+        val id = task?.id ?: UUID.randomUUID().toString();
 
+        taskTitle.setText(task?.title)
+        taskDescription.setText(task?.description)
+
+        validBtn.setOnClickListener{
+                val newTask =
+                    Task(id = id, title = taskTitle.text.toString(), description = taskDescription.text.toString());
+                intent.putExtra("task", newTask);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
     }
 }

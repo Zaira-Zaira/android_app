@@ -24,15 +24,20 @@ object ListDiffCallBack: DiffUtil.ItemCallback<Task>(){
 
 class TaskListAdapter : ListAdapter<Task, TaskListAdapter.TaskViewHolder>(ListDiffCallBack) {
     var onClickDelete: (Task) -> Unit = {};
+    var onClickEdit : (Task) -> Unit = {};
     inner class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var deleteBtn = itemView.findViewById<ImageButton>(R.id.delete_task);
+        var editBtn = itemView.findViewById<ImageButton>(R.id.edit_task);
+        var taskView = itemView.findViewById<TextView>(R.id.task_title);
+        var taskDesc = itemView.findViewById<TextView>(R.id.task_description);
+
         fun bind(task: Task) {
-            var taskView = itemView.findViewById<TextView>(R.id.task_title);
             taskView.text = task.title;
-            var taskDesc = itemView.findViewById<TextView>(R.id.task_description);
             taskDesc.text = task.description
-        }
-        fun deleteTask(task: Task) {
+
+            editBtn.setOnClickListener{
+                onClickEdit(task);
+            }
             deleteBtn.setOnClickListener{
                 onClickDelete(task);
             }
@@ -47,6 +52,5 @@ class TaskListAdapter : ListAdapter<Task, TaskListAdapter.TaskViewHolder>(ListDi
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
          holder.bind(getItem(position));
-         holder.deleteTask(getItem(position));
     }
 }
