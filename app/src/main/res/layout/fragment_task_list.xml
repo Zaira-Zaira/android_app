@@ -6,40 +6,81 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/userInfo"
+        android:id="@+id/userFirstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/task_title"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
-        />
+        app:layout_constraintVertical_bias="0.088" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/task_title"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="357dp"
+        android:layout_height="320dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/avatar"
+        app:layout_constraintVertical_bias="0.518" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="addTask"
         app:layout_constraintBottom_toBottomOf="@id/task_title"
         app:layout_constraintEnd_toEndOf="@id/task_title"
-        app:srcCompat="@drawable/ic_baseline_add_24"
-        tools:layout_editor_absoluteX="295dp"
-        tools:layout_editor_absoluteY="626dp"/>
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="136dp"
+        android:layout_height="145dp"
+        app:layout_constraintEnd_toStartOf="@+id/userFirstname"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/userLastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/userMail"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/userFirstname" />
+
+    <TextView
+        android:id="@+id/userMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/edit_userInfo"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/userFirstname"
+        app:layout_constraintVertical_bias="0.336" />
+
+    <Button
+        android:id="@+id/edit_userInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="108dp"
+        android:text="Editer le profil"
+        app:layout_constraintBottom_toTopOf="@+id/task_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avatar"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

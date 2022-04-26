@@ -64,4 +64,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation("io.coil-kt:coil:2.0.0-rc03")
+    implementation("com.google.modernstorage:modernstorage-bom:1.0.0-alpha06")
+    implementation("com.google.modernstorage:modernstorage-permissions")
+    implementation("com.google.modernstorage:modernstorage-storage")
+    implementation("com.squareup.okio:okio")
 }
