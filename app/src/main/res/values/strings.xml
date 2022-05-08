@@ -8,4 +8,6 @@
     <string name="editFirstname">Firstname</string>
     <string name="editLastname">Lastname</string>
     <string name="editMail">Mail</string>
+    <string name="editTask">Editer la tâche</string>
+    <string name="deleteTask">Supprimer la tache</string>
 </resources>
