@@ -22,9 +22,8 @@ object ListDiffCallBack: DiffUtil.ItemCallback<Task>(){
     }
 }
 
-class TaskListAdapter : ListAdapter<Task, TaskListAdapter.TaskViewHolder>(ListDiffCallBack) {
-    var onClickDelete: (Task) -> Unit = {};
-    var onClickEdit : (Task) -> Unit = {};
+class TaskListAdapter(val listener: TaskListListener) : ListAdapter<Task, TaskListAdapter.TaskViewHolder>(ListDiffCallBack) {
+
     inner class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var deleteBtn = itemView.findViewById<ImageButton>(R.id.delete_task);
         var editBtn = itemView.findViewById<ImageButton>(R.id.edit_task);
@@ -36,10 +35,10 @@ class TaskListAdapter : ListAdapter<Task, TaskListAdapter.TaskViewHolder>(ListDi
             taskDesc.text = task.description
 
             editBtn.setOnClickListener{
-                onClickEdit(task);
+                listener.onClickEdit(task)
             }
             deleteBtn.setOnClickListener{
-                onClickDelete(task);
+                listener.onClickDelete(task)
             }
         }
     }
